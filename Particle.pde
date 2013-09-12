@@ -2,9 +2,11 @@ class Particle {
   PVector pos;
   float radius;
   float phase;
+  float strokeWeight;
 
-  Particle() {
-    radius = 30;
+  Particle(float size, float _strokeWeight) {
+    radius = size;
+    strokeWeight = _strokeWeight;
     phase = random(0, 1) * PI;
     pos = new PVector(random(0, width), random(0, height));
   }
@@ -14,6 +16,7 @@ class Particle {
   }
 
   void display() {
-    ellipse(pos.x, pos.y, 20, 20);
+    strokeWeight(strokeWeight);
+    ellipse(pos.x, pos.y, radius, radius);
   }
 }
